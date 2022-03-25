@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Counter from "./pages/Counter";
+import Grid from "./pages/Grid";
+import Form from "./pages/Form";
+import * as REact from "react";
+import {BrowserRouter,Routes,Route,Link} from "react-router-dom";
 
-function App() {
+
+export default function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <Link to ="/" style ={{margin: 20}}>Counter</Link>
+        <Link to ="/Grid" style ={{margin: 20}}>Grid</Link>
+        <Link to ="/Form">Form</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Counter/>}/>
+        <Route path="/Grid" element={<Grid/>}/>
+        <Route path="/Form" element={<Form/>}/>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
-
-export default App;
